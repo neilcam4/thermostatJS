@@ -3,6 +3,7 @@
 
 function Thermostat (){
   this.temperature = 20;
+  this.isPowerSaving = true;
 }
 
 Thermostat.prototype.up = function(){
