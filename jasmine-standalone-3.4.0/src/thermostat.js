@@ -9,6 +9,8 @@ Thermostat.prototype.up = function(){
   this.temperature++;
 }
 Thermostat.prototype.down = function(){
-  this.temperature --;
+  if (this.temperature > 10) {
+    this.temperature --;
+  }
+  return this.temperature
 }
-// test add

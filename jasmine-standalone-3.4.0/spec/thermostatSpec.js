@@ -31,9 +31,21 @@ describe('Thermostat', function(){
     });
   });
   describe('down', function(){
+
     it('should reduce the temperature', function(){
       thermostat.down()
       expect(thermostat.temperature).toBeLessThan(20)
     });
+    it('should not reduce the temperature below 10', function() {
+      for ( var i = 11; i > 0 ; i-- ) {
+        thermostat.down()
+      }
+      expect(thermostat.temperature).toEqual(10)
+    });
+    // it('should raise an error if the user tries to reduce the temperature below 10', function() {
+    //   expect(function() { thermostat.down(); }).toThrowError('Target temp cannot be set below 10 degrees');
+    // });
+
   });
+
 });
