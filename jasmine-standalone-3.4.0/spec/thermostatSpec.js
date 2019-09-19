@@ -30,5 +30,10 @@ describe('Thermostat', function(){
       expect(thermostat.temperature).toBeGreaterThan(20)
     });
   });
-
+  describe('down', function(){
+    it('should reduce the temperature', function(){
+      thermostat.down()
+      expect(thermostat.temperature).toBeLessThan(20)
+    });
+  });
 });
