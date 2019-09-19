@@ -1,5 +1,5 @@
 'use strict'
-// You can reset the temperature to 20 with a reset function
+
 // You can ask about the thermostat's current energy usage: < 18 is low-usage,
 // < 25 is medium-usage, anything else is high-usage.
 // (In the challenges where we add an interface, low-usage will
@@ -59,4 +59,12 @@ describe('Thermostat', function(){
     });
 
   })
+  // You can reset the temperature to 20 with a reset function
+  describe('reset', function() {
+    it('can reset the temperature back to 20', function() {
+      thermostat.up();
+      thermostat.reset();
+      expect(thermostat.temperature).toEqual(20)
+    });
+  });
 });
