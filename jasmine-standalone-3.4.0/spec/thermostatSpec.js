@@ -1,19 +1,6 @@
 
 'use strict'
 
-describe('Thermostat', function(){
-  // Thermostat starts at 20 degrees
-  var thermostat;
-  beforeEach(function(){
-     thermostat = new Thermostat();
-  });
-
-  it('should have a starting teperature at 20 degrees', function(){
-  expect(thermostat.startingTemp()).toEqual(20)
-});
-});
-
-
 // You can increase the temperature with an up function
 // You can decrease the temperature with a down function
 // The minimum temperature is 10 degrees
@@ -26,3 +13,22 @@ describe('Thermostat', function(){
 // (In the challenges where we add an interface, low-usage will
 // be indicated with green, medium-usage indicated with black, high-usage
 // indicated with red.)
+
+describe('Thermostat', function(){
+  // Thermostat starts at 20 degrees
+  var thermostat;
+  beforeEach(function(){
+     thermostat = new Thermostat();
+  });
+
+  it('should have a starting teperature at 20 degrees', function(){
+  expect(thermostat.temperature).toEqual(20)
+});
+  describe('up', function() {
+    it('can increase the temperature', function() {
+      thermostat.up()
+      expect(thermostat.temperature).toBeGreaterThan(20)
+    });
+  });
+
+});
