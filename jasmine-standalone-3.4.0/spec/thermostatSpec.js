@@ -1,7 +1,7 @@
 'use strict'
 
-// You can ask about the thermostat's current energy usage: < 18 is low-usage,
-// < 25 is medium-usage, anything else is high-usage.
+
+
 // (In the challenges where we add an interface, low-usage will
 // be indicated with green, medium-usage indicated with black, high-usage
 // indicated with red.)
@@ -44,6 +44,7 @@ describe('Thermostat', function(){
       }
       expect(thermostat.temperature).toEqual(10)
     });
+
   });
   describe('power saving mode', function(){
     // Power saving mode is on by default
@@ -67,4 +68,17 @@ describe('Thermostat', function(){
       expect(thermostat.temperature).toEqual(20)
     });
   });
+    // You can ask about the thermostat's current energy usage: < 18 is low-usage,
+    // < 25 is medium-usage, anything else is high-usage.
+  describe('Checking Energy Usage', function(){
+    it('returns low usage when below 18', function(){
+      for (var i = 0; i < 4; i++){
+        thermostat.down()
+      }
+      expect(thermostat.checkEnergyUsage()).toEqual('Low')
+    })
+    it('returns medium usage when temperature less than 25 but greater than 18', function(){
+      expect(thermostat.checkEnergyUsage()).toEqual('Medium')
+    });
+  })
 });
