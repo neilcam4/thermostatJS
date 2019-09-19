@@ -1,11 +1,4 @@
-
 'use strict'
-
-
-
-
-// If power saving mode is off, the maximum temperature is 32 degrees
-
 // You can reset the temperature to 20 with a reset function
 // You can ask about the thermostat's current energy usage: < 18 is low-usage,
 // < 25 is medium-usage, anything else is high-usage.
@@ -29,6 +22,15 @@ describe('Thermostat', function(){
       thermostat.up()
       expect(thermostat.temperature).toBeGreaterThan(20)
     });
+    // If power saving mode is off, the maximum temperature is 32 degrees
+    it('it prevents temperature going above 32 if power mode is off', function(){
+      thermostat.powerSavingOff()
+      for (var i = 0; i< 14 ;i++){
+        thermostat.up()
+      }
+      expect(thermostat.temperature).toEqual(32)
+
+    })
   });
   describe('down', function(){
     // You can decrease the temperature with a down function
