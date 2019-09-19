@@ -8,3 +8,4 @@ function Thermostat (){
 Thermostat.prototype.up = function(){
   this.temperature++
 }
+// test add
