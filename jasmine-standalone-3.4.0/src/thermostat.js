@@ -1,10 +1,8 @@
 
 'use strict'
 
-function Thermostat (){
-  this.temperature = 20;
-}
+function Thermostat (){}
 
-Thermostat.prototype.up = function(){
-  this.temperature++
+Thermostat.prototype.startingTemp = function(){
+  return (20)
 }
