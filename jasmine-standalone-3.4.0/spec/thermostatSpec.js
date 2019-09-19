@@ -80,5 +80,13 @@ describe('Thermostat', function(){
     it('returns medium usage when temperature less than 25 but greater than 18', function(){
       expect(thermostat.checkEnergyUsage()).toEqual('Medium')
     });
+    it('returns high usage when temperature greater than 25', function() {
+      thermostat.powerSavingOff();
+      for (var i = 0; i < 5; i++) {
+        thermostat.up();
+      }
+      console.log(thermostat.temperature)
+      expect(thermostat.checkEnergyUsage()).toEqual('High')
+    });
   })
 });
