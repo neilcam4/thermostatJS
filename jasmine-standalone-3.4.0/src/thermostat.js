@@ -11,8 +11,8 @@ Thermostat.prototype.getCurrentTemperature = function() {
   return this.temperature;
 }
 
-Thermostat.prototype.isPowerSaving = function() {
-  return this.isPowerSaving === true; // does this need to be set to true?
+Thermostat.prototype.isPowerSavingModeOn = function() {
+  return this.isPowerSaving === true;
 }
 
 Thermostat.prototype.up = function(){

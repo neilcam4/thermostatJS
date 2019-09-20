@@ -43,20 +43,19 @@ describe('Thermostat', function () {
   describe('power saving mode', function(){
     // Power saving mode is on by default
     it('sets power save mode to be on by default', function(){
-      console.log(thermostat.isPowerSaving())
-      expect(thermostat.isPowerSaving()).toBe(true);
+      expect(thermostat.isPowerSavingModeOn()).toBe(true);
     });
 
-    // it('can be switched off', function() {
-    //   thermostat.powerSavingOff();
-    //   expect(thermostat.isPowerSaving()).toBe(false);
-    // });
+    it('can be switched off', function() {
+      thermostat.powerSavingOff();
+      expect(thermostat.isPowerSavingModeOn()).toBe(false);
+    });
 
-    // it('can be switched on', function() {
-    //   thermostat.powerSavingOff();
-    //   thermostat.powerSavingOn();
-    //   expect(thermostat.isPowerSaving()).toBe(true);
-    // });
+    it('can be switched on', function() {
+      thermostat.powerSavingOff();
+      thermostat.powerSavingOn();
+      expect(thermostat.isPowerSavingModeOn()).toBe(true);
+    });
     // If power saving mode is on, the maximum temperature is 25 degrees
     it('when power saving is on, temp cannot be increased above 25', function() {
       for (var i = 0; i < 6; i++) {
